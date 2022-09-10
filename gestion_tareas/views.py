@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from gestion_tareas.models import usuarios_app ,Tarea_app
 from django.http import HttpResponseRedirect 
+from dateutil.parser import parse
 
 
 # Create your views here.
@@ -35,4 +36,14 @@ def dashboard(request):
       })
 
 def nuevaTarea(request):
-    return render(request,'gestion_tareas/nuevaTarea.html')
+    if request.method == 'POST':
+        fechaCreacion= request.POST.get('fechaCreacion')
+        fechaCreacion=parse(fechaCreacion)
+        descripcion= request.POST.get('descipcion_tarea')
+        responsable= request.POST.get('usuario_Responsable')
+        Tarea_app(fechacreacion_tarea=fechaCreacion,descripcion_tarea=descripcion,usuarioResponsable_tarea=responsable).save()
+        return HttpResponseRedirect(reverse('gestion_tareas:dashboard'))
+
+    return render(request,'gestion_tareas/nuevaTarea.html',{
+            'tareas_registradas':Tarea_app.objects.all()
+    })
