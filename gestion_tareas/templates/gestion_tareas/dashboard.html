@@ -18,8 +18,8 @@
             <br>
             <br>
 
-            <table class="table">
-                <thead>
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
                     <th>Id</th>
                     <th>Descripcion</th>
                     <th>Fecha Creacion</th>
@@ -31,12 +31,12 @@
                 <tbody>
                     {% for tarea in objTarea  %}
                     <tr>
-                        <th>{{ tarea.id }}</th>
-                        <th>{{ tarea.descripcion_tarea }}</th>
-                        <th>{{ tarea.fechacreacion_tarea }}</th>
-                        <th>{{ tarea.fechaEntrega_tarea}}</th>
-                        <th>{{ tarea.usuarioResponsable_tarea }}</th>
-                        <th>{{ tarea.estado_tarea }}</th>
+                        <td>{{ tarea.id }}</td>
+                        <td><p class="fw-normal mb-1">{{ tarea.descripcion_tarea }}</p></td>
+                        <td>{{ tarea.fechacreacion_tarea }}</td>
+                        <td>{{ tarea.fechaEntrega_tarea}}</td>
+                        <td>{{ tarea.usuarioResponsable_tarea }}</td>                       
+                        <td>{{ tarea.estado_tarea }}</td>
                         <td><a class="btn btn-warning" href="{% url 'gestion_tareas:editarTarea' tarea.id  %}">E</a></td>
                     </tr>
                     {% endfor %}

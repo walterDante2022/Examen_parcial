@@ -51,6 +51,14 @@ def nuevaTarea(request):
     
 def editarTarea(request, ind):
     tarea_editar=Tarea_app.objects.get(id=ind)
+    if request.method == 'POST':
+        descripcion_tarea= request.POST.get('descripcion_tarea')
+        usuario_Responsable= request.POST.get('usuario_Responsable')
+        tarea_editar.descripcion_tarea=descripcion_tarea
+        tarea_editar. usuarioResponsable_tarea=usuario_Responsable
+        tarea_editar.save()
+        return HttpResponseRedirect(reverse('gestion_tareas:dashboard'))
+        
     return render(request,'gestion_tareas/editarTarea.html',{
         'tarea_info' :tarea_editar,
         'tareas_registradas':Tarea_app.objects.all()

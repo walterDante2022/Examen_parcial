@@ -14,7 +14,7 @@
                 {% csrf_token %}
                 <div class="form-group col-md-3">
                     <label>Fecha de Creacion</label>
-                    <input type="date" class="form-control"  name="fechaCreacion" value="{{ tarea_info.fecha|date:'d-m-Y' }}">
+                    <input type="date" class="form-control"  name="fechaCreacion" value="{{ tarea_info.fecha }}">
                 </div>
                 <h3>{{ tarea_info.fecha|date:'d-m-Y' }}</h3>
                 <div class="row">
@@ -27,9 +27,9 @@
                             <option value="Historia">Historia</option>
                             <option value="Python">Python</option>
                           </select>-->
-                          <select class="form-select" name="descipcion_tarea">
+                          <select class="form-select" name="descripcion_tarea">
                             {% for equipo in tareas_registradas %}
-                            <option value="{{ equipo.id }}">{{ equipo.descripcion_tarea }}</option>
+                            <option value="{{ equipo.descripcion_tarea }}">{{ equipo.descripcion_tarea }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -37,7 +37,7 @@
                         <label>Usuario Responsable</label>
                         <select class="form-select" name="usuario_Responsable">
                             {% for equipo in tareas_registradas %}
-                            <option value="{{ equipo.id }}">{{ equipo.usuarioResponsable_tarea }}</option>
+                            <option value="{{ equipo.usuarioResponsable_tarea }}">{{ equipo.usuarioResponsable_tarea }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -50,7 +50,7 @@
                 <br>
                 <br>
                 <div class="col-md-3">
-                    <button type="submit" class="btn btn-success"> Crear Tarea</button>
+                    <button type="submit" class="btn btn-success"> Editar Tarea</button>
                     <a class="btn btn-info"   href="{% url 'gestion_tareas:dashboard' %}">Salir</a>
                 </div>
             </form>
