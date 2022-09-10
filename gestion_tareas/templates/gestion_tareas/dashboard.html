@@ -26,6 +26,7 @@
                     <th>fecha Entrega</th>
                     <th>Usuario Responsable</th>
                     <th>Estado</th>
+                    <th>Editar</th>
                 </thead>
                 <tbody>
                     {% for tarea in objTarea  %}
@@ -36,6 +37,7 @@
                         <th>{{ tarea.fechaEntrega_tarea}}</th>
                         <th>{{ tarea.usuarioResponsable_tarea }}</th>
                         <th>{{ tarea.estado_tarea }}</th>
+                        <td><a class="btn btn-warning" href="{% url 'gestion_tareas:editarTarea' tarea.id  %}">E</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

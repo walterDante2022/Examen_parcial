@@ -6,6 +6,6 @@ app_name ='gestion_tareas'
 urlpatterns=[
     path('',views.login,name='login'),
     path('dashboard',views.dashboard,name='dashboard'),
-     path('nuevaTarea',views.nuevaTarea,name='nuevaTarea'),
-
+    path('nuevaTarea',views.nuevaTarea,name='nuevaTarea'),
+    path('editarTarea/<str:ind>',views.editarTarea,name='editarTarea'),
 ]

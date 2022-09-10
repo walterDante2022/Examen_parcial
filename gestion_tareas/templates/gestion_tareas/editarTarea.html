@@ -9,23 +9,29 @@
     </head>
     <body>
         <div class="container col-md-8">
-            <h3>Crear Tarea </h3>
-            <form method="post"  action="{% url  'gestion_tareas:nuevaTarea'   %}">
+            <h3>Editar Tarea </h3>
+            <form method="post"  action="{% url  'gestion_tareas:editarTarea' tarea_info.id   %}">
                 {% csrf_token %}
                 <div class="form-group col-md-3">
                     <label>Fecha de Creacion</label>
-                    <input type="date" class="form-control"  name="fechaCreacion">
+                    <input type="date" class="form-control"  name="fechaCreacion" value="{{ tarea_info.fecha|date:'d-m-Y' }}">
                 </div>
+                <h3>{{ tarea_info.fecha|date:'d-m-Y' }}</h3>
                 <div class="row">
                     <div class="col-md-4">
                         <label> Tarea </label>
-                        <select class="form-select" name="descipcion_tarea">
+                        <!--<select class="form-select" name="descipcion_tarea">
                             <option value="Mate1">Mate1</option>
                             <option value="Fisica1" selected>Fisica1</option>
                             <option value="Fisica2">Fisica2</option>
                             <option value="Historia">Historia</option>
                             <option value="Python">Python</option>
-                          </select>
+                          </select>-->
+                          <select class="form-select" name="descipcion_tarea">
+                            {% for equipo in tareas_registradas %}
+                            <option value="{{ equipo.id }}">{{ equipo.descripcion_tarea }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <label>Usuario Responsable</label>
@@ -41,6 +47,7 @@
                     </div>
                 -->
                 </div>
+                <br>
                 <br>
                 <div class="col-md-3">
                     <button type="submit" class="btn btn-success"> Crear Tarea</button>

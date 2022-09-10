@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from gestion_tareas.models import usuarios_app ,Tarea_app
-from django.http import HttpResponseRedirect 
+from django.http import HttpResponseRedirect , HttpResponse
 from dateutil.parser import parse
 
 
@@ -46,4 +46,12 @@ def nuevaTarea(request):
 
     return render(request,'gestion_tareas/nuevaTarea.html',{
             'tareas_registradas':Tarea_app.objects.all()
+    })
+
+    
+def editarTarea(request, ind):
+    tarea_editar=Tarea_app.objects.get(id=ind)
+    return render(request,'gestion_tareas/editarTarea.html',{
+        'tarea_info' :tarea_editar,
+        'tareas_registradas':Tarea_app.objects.all()
     })
