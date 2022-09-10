@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from gestion_tareas.models import usuarios_app 
+from gestion_tareas.models import usuarios_app ,Tarea_app
 from django.http import HttpResponseRedirect 
 
 
@@ -29,7 +29,10 @@ def login(request):
     return render(request,'gestion_tareas/login.html')
 
 def dashboard(request):
-      return render(request,'gestion_tareas/dashboard.html')
+      tareas_totales=Tarea_app.objects.all()
+      return render(request,'gestion_tareas/dashboard.html',{
+        'objTarea':tareas_totales,
+      })
 
 def nuevaTarea(request):
     return render(request,'gestion_tareas/nuevaTarea.html')

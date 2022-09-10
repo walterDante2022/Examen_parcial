@@ -28,14 +28,14 @@
                     <th>Estado</th>
                 </thead>
                 <tbody>
-                    {% for tarea in objPichanga  %}
+                    {% for tarea in objTarea  %}
                     <tr>
                         <th>{{ tarea.id }}</th>
-                        <th>{{ tarea.descripcion }}</th>
-                        <th>{{ tarea.fechaCreacion }}</th>
-                        <th>{{ tarea.fechaEntrega }}</th>
-                        <th>{{ tarea.usuarioResponsable }}</th>
-                        <th>{{ tarea.estado }}</th>
+                        <th>{{ tarea.descripcion_tarea }}</th>
+                        <th>{{ tarea.fechacreacion_tarea }}</th>
+                        <th>{{ tarea.fechaEntrega_tarea}}</th>
+                        <th>{{ tarea.usuarioResponsable_tarea }}</th>
+                        <th>{{ tarea.estado_tarea }}</th>
                     </tr>
                     {% endfor %}
                 </tbody>
