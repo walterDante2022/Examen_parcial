@@ -12,7 +12,7 @@
             <h3>Crear Tarea </h3>
             <form method="post"  action="{% url  'gestion_tareas:nuevaTarea'   %}">
                 {% csrf_token %}
-                <div class="form-group col-md-3">
+          <!--- <div class="form-group col-md-3">
                     <label>Fecha de Creacion</label>
                     <input type="date" class="form-control"  name="fechaCreacion">
                 </div>
@@ -35,17 +35,98 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <!--<div class="col-md-4">
-                        <label>Usuario Responsable</label>
-                        <input type="text"  name="usuario_Responsable" >
-                    </div>
-                -->
+                    
                 </div>
                 <br>
                 <div class="col-md-3">
                     <button type="submit" class="btn btn-success"> Crear Tarea</button>
                     <a class="btn btn-info"   href="{% url 'gestion_tareas:dashboard' %}">Salir</a>
-                </div>
+                </div> -->
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row mb-4">
+                            <div class="col">
+                            <div class="form-outline">                         
+
+                                
+                                <input type="date" class="form-control"  name="fechaCreacion">
+                                <label class="form-label">Fecha de Creacion</label>
+                            </div>
+                            </div>
+                            <div class="col">
+                            <div class="form-outline">
+                                <!--<input type="text" id="form6Example2" class="form-control" />
+                                <label class="form-label" for="form6Example2">Last name</label>
+                                
+                                <select class="form-select" name="descipcion_tarea">
+                                    <option value="Mate1">Mate1</option>
+                                    <option value="Fisica1" selected>Fisica1</option>
+                                    <option value="Fisica2">Fisica2</option>
+                                    <option value="Historia">Historia</option>
+                                    <option value="Python">Python</option>
+                                </select>
+                                <label class="form-label"> Tarea </label>-->
+                                <input type="date" class="form-control"  name="fechaEntrega">
+                                <label class="form-label">Fecha de Entrega</label>
+
+                                
+
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <select class="form-select" name="descripcion_tarea">
+                                {% for equipo in cursos_registrados %}
+                                    <option value="{{ equipo.curso }}">{{ equipo.curso }}</option>
+                                {% endfor %}
+                            </select>
+                            <label class="form-label">Tarea</label>                       
+                           
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+
+                                <select class="form-select" name="usuario_Responsable">
+                                {% for equipo in tareas_registradas %}
+                                    <option value="{{ equipo.usuarioResponsable_tarea }}">{{ equipo.usuarioResponsable_tarea }}</option>
+                                {% endfor %}
+                                </select>
+                                <label class="form-label">Usuario Responsable</label>
+                        </div>
+
+                        <!-- Email input 
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form6Example5" class="form-control" />
+                            <label class="form-label" for="form6Example5">Email</label>
+                        </div>-->
+
+                        <!-- Number input 
+                        <div class="form-outline mb-4">
+                            <input type="number" id="form6Example6" class="form-control" />
+                            <label class="form-label" for="form6Example6">Phone</label>
+                        </div>-->
+
+                        <!-- Message input 
+                        <div class="form-outline mb-4">
+                            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                            <label class="form-label" for="form6Example7">Additional information</label>
+                        </div>-->
+
+                        <!-- Checkbox
+                        <div class="form-check d-flex justify-content-center mb-4">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
+                            <label class="form-check-label" for="form6Example8"> Create an account? </label>
+                        </div> -->
+
+                        <!-- Submit button -->
+                        <div class="form-check d-flex justify-content-center mb-4"></div>
+                        <button type="submit" class="btn btn-primary btn-block mb-4"> Crear Tarea</button>
+                        <a class="btn btn-success"  href="{% url 'gestion_tareas:dashboard' %}">Salir</a>
+                        </div>
+                        
+
             </form>
         </div>    
     </body>

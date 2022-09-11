@@ -34,9 +34,9 @@
                         <td>{{ tarea.id }}</td>
                         <td><p class="fw-normal mb-1">{{ tarea.descripcion_tarea }}</p></td>
                         <td>{{ tarea.fechacreacion_tarea }}</td>
-                        <td>{{ tarea.fechaEntrega_tarea}}</td>
+                        <td>{{ tarea.fechaentrega_tarea}}</td>
                         <td>{{ tarea.usuarioResponsable_tarea }}</td>                       
-                        <td>{{ tarea.estado_tarea }}</td>
+                        <td>{{ tarea.estado_tarea   }}</td>
                         <td><a class="btn btn-warning" href="{% url 'gestion_tareas:editarTarea' tarea.id  %}">E</a></td>
                     </tr>
                     {% endfor %}

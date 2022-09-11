@@ -14,9 +14,13 @@
                 {% csrf_token %}
                 <div class="form-group col-md-3">
                     <label>Fecha de Creacion</label>
-                    <input type="date" class="form-control"  name="fechaCreacion" value="{{ tarea_info.fecha }}">
+                    <input type="date" class="form-control"  name="fechaCreacion" value="{{ tarea_info.fechacreacion_tarea }}">
                 </div>
-                <h3>{{ tarea_info.fecha|date:'d-m-Y' }}</h3>
+                <div class="form-group col-md-3">
+                    <label>Fecha de Entrega</label>
+                    <input type="date" class="form-control"  name="fechaEntrega" value="{{ tarea_info.fechaentrega_tarea }}">
+                </div>
+                <h3>{{ tarea_info.fechacreacion_tarea.date }}</h3>
                 <div class="row">
                     <div class="col-md-4">
                         <label> Tarea </label>
@@ -28,8 +32,8 @@
                             <option value="Python">Python</option>
                           </select>-->
                           <select class="form-select" name="descripcion_tarea">
-                            {% for equipo in tareas_registradas %}
-                            <option value="{{ equipo.descripcion_tarea }}">{{ equipo.descripcion_tarea }}</option>
+                            {% for equipo in cursos_registrados %}
+                                <option value="{{ equipo.curso }}">{{ equipo.curso }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -38,6 +42,14 @@
                         <select class="form-select" name="usuario_Responsable">
                             {% for equipo in tareas_registradas %}
                             <option value="{{ equipo.usuarioResponsable_tarea }}">{{ equipo.usuarioResponsable_tarea }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Estado Tarea</label>
+                        <select class="form-select" name="estado_tarea">
+                            {% for equipo in tareas_registradas %}
+                            <option value="{{ equipo.estado_tarea }}">{{ equipo.estado_tarea }}</option>
                             {% endfor %}
                         </select>
                     </div>

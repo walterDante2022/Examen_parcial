@@ -8,6 +8,7 @@ class usuarios_app(models.Model):
     apellido = models.CharField(max_length=128, default='') 
     psw_usuario = models.CharField(max_length=128, default='')
     codigo_usuario = models.CharField(max_length=128, default='')
+    usuario_curso = models.CharField(max_length=128, default='')
 
 class Tarea_app(models.Model):
     
@@ -17,4 +18,6 @@ class Tarea_app(models.Model):
     usuarioResponsable_tarea= models.CharField(max_length=128, default='0')
     estado_tarea=models.CharField(max_length=128, default='Progreso') 
 
-    
+class Curso_app(models.Model):
+
+    curso =models.CharField(max_length=128, default='')
